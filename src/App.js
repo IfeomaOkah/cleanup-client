@@ -23,18 +23,17 @@ export default class App extends Component {
           <Route path="/upcoming" component={Upcoming}/>
           <Route exact path="/cleanups" component={CleanUps}/>
           <Route path="/cleanups/:id" component={CleanDetail}/>
-          {/* <ProtectedRoute 
+          <ProtectedRoute 
             redirectUrl='/signup' 
             path="/create_event" 
             component={CreateEvent}
-          /> */}
+          />
           <Route path="/profile" component={Profile}/>
-          <Route path="/create_event" component={CreateEvent}/>
-          {/* <ProtectedRoute 
-            redirectUrl='/login' 
+          <ProtectedRoute 
+            redirectUrl='/' 
             path="/profile" 
             component= {Profile}
-          /> */}
+          />
         </Switch> 
       </div>
     )

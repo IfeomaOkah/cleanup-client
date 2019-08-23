@@ -17,7 +17,6 @@ export default class CleanComps extends Component {
           <h1>{this.props.cleanup.headline}</h1>
         </Link>
           <p>{this.props.cleanup.description}</p>
-          <div>{this.props.cleanup.image_url}</div>
           <button className={this.state.btnClass} onClick={() => {this.props.join(this.props.cleanup._id); this.setState({btnText: "Joined!", btnClass: "pushedBtn"})}} >{this.state.btnText}</button>
       </div> 
     )

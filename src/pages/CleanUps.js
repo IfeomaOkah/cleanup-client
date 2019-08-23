@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import CleanComps from '../components/CleanComps';
-import Nav from "../components/Nav";
 import {Link} from "react-router-dom";
 import AuthEvent from '../utilities/AuthEvent';
 import AuthService from "../utilities/AuthService";
@@ -31,14 +30,13 @@ join = (id) => {
     })
     .catch(error =>{
       console.log(error);
-      if(error.response.data.message === "Unauthorized") this.props.history.push("/login")
+      if(error.response.data.message === "Unauthorized") this.props.history.push("/")
     })
 }
 componentDidMount() {
 
   auth.getEvent()
   .then(response => {
-    debugger
     console.log(response)
     this.setState({
       cleanups: response
@@ -49,13 +47,14 @@ componentDidMount() {
   render() {
     return (
       <div>
-       <Nav />
+        <img className="signup-logo" src="/img/cleanup-logo.png" alt="img"/>
+        <div className="profile-body">
+        <div className="profile-header">
        <Link
           to="/profile">
-          <h3 className="">Hi, {hello.getUser()}</h3>
+          <h3 className="">Hi,{hello.getUser()}</h3>
         </Link>
-      <div className="profile-body">
-        <div className="profile-header"></div>
+        </div>
         <div> 
           {this.state.cleanups.map(cleanup =>
           <CleanComps cleanup={cleanup} join={this.join}/>

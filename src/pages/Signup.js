@@ -28,7 +28,7 @@ export default class Signup extends Component {
       this.service.signup(username, email, firstname, lastname, dob, password)
       .then( response => {
         this.props.history.push({
-          pathname: '/login',
+          pathname: '/',
           state: response.username
         })
         .catch((error)=> {

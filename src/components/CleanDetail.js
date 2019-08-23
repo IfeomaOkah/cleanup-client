@@ -14,7 +14,6 @@ export default class CleanDetail extends Component {
     eventUtils.getEventDetails(this.props.match.params.id)
     .then(response => {
       console.log(response)
-      // debugger
       this.setState({
         cleanup: response.data
       })
@@ -30,7 +29,6 @@ export default class CleanDetail extends Component {
         <div>
           <h1>{this.state.cleanup.title}</h1>
           <p>{this.state.cleanup.description}</p>
-          <div>{this.state.cleanup.image_url}</div>
           <Link to={'/cleanups'}>Back to cleanups</Link>
         </div>:
         <p>Loading...</p>

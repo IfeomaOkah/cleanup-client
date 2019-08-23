@@ -6,7 +6,6 @@ export default class CreateEvent extends Component {
   constructor(props){
     super(props);
     this.state = {
-      element: '',
       headline: '',
       date: '',
       description: '', 
@@ -16,18 +15,16 @@ export default class CreateEvent extends Component {
   }
     handleEventSubmit = (event) => {
       event.preventDefault();
-
-      const element = this.state.element;
       const headline = this.state.headline;
       const date = this.state.date;
       const description = this.state.description;
       const location = this.state.location;
      
       
-      this.service.makeEvent(element, headline, date, description, location)
+      this.service.makeEvent( headline, date, description, location)
       .then( response => {
         this.props.history.push({
-          pathname: '/',
+          pathname: '/cleanups',
           state: response.headline
         })
       })

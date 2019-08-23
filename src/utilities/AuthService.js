@@ -1,5 +1,4 @@
 import axios from 'axios';
-import qs from "querystring";
 
 export default class AuthService {
   constructor() {
@@ -25,7 +24,7 @@ export default class AuthService {
   login = (username, password) => {
     return this.service({
         method: "POST",
-        url: '/login',
+        url: '/',
         data: {username,password}
     })
     .then((response)=> {
@@ -52,7 +51,7 @@ export default class AuthService {
 
   logout = ()=>{
     return this.service({
-      url: '/login',
+      url: '/',
     })
     .then((res)=> {
       localStorage.removeItem('user');

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Nav from "../components/Nav";
 import {Link} from "react-router-dom";
 import AuthEvent from '../utilities/AuthEvent';
 import AuthService from "../utilities/AuthService";
@@ -17,22 +16,20 @@ export default class Profile extends Component {
   componentDidMount(){
     eventUtils.getUserDB()
     .then(response => {
-      // debugger
       console.log(response)
       this.setState({
         user: response.data
       })
     })
     .catch(error =>{
-      // debugger
       console.log(error);
-      // if(error.response.data.message === "Unauthorized") this.props.history.push("/login")
+      if(error.response.data.message === "Unauthorized") this.props.history.push("/")
     })
   }
   render() {
     return (
      <div>
-      <Nav />
+      <img className="signup-logo" src="/img/cleanup-logo.png" alt="img"/>
         <div className="profile-body">
           <div className="profile-header">
             <Link 
@@ -77,7 +74,6 @@ export default class Profile extends Component {
             </Link>
           </div>
           </div>
-
         </div>
      </div> 
     )
