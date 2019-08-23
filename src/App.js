@@ -19,7 +19,6 @@ export default class App extends Component {
           <Route exact path="/" component={Login}/>
           <Route path="/signup" component={Signup}/>
           <Route path="/mycleanups" component={MyCleanUps}/>
-          <Route path="/create_event" component={CreateEvent}/>
           <Route path="/upcoming" component={Upcoming}/>
           <Route exact path="/cleanups" component={CleanUps}/>
           <Route path="/cleanups/:id" component={CleanDetail}/>
@@ -28,7 +27,6 @@ export default class App extends Component {
             path="/create_event" 
             component={CreateEvent}
           />
-          <Route path="/profile" component={Profile}/>
           <ProtectedRoute 
             redirectUrl='/' 
             path="/profile" 
